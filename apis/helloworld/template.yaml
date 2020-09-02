@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  Sample SAM Template
+
+Description: "Sample SAM Template
 
   for using multiple lambdas in a single API
 
@@ -11,7 +11,9 @@ Metadata:
     Description: hello world example
     Author: mm
     SpdxLicenseId: Apache-2.0
-    Labels: ["tests"]
+    Labels:
+      - tests
+
     HomePageUrl: https://github.com/JonnyCodr/sam-template-starter
     SemanticVersion: 0.0.1
     SourceCodeUrl: https://github.com/JonnyCodr/sam-template-starter
@@ -19,13 +21,17 @@ Metadata:
 Parameters:
   Application:
     Type: String
-    Description: "user-identity-greedy-proxy"
+    Description: user-identity-greedy-proxy
   Brand:
     Type: String
-    Description: "dhi"
+    Description: dhi
   Environment:
     Type: String
-    AllowedValues: [dev, qa, pilot, prod]
+    AllowedValues:
+      - dev
+      - qa
+      - pilot
+      - prod
   Owner:
     Type: String
 
@@ -39,6 +45,17 @@ Resources:
     Properties:
       LayerName: GlobalDependenciesLayer
       ContentUri: layers/global-dependencies
+      CompatibleRuntimes:
+        - nodejs12.x
+      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: nodejs12.x
+
+  GlobalAPIResponsesLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: GlobalAPIResponsesLayer
+      ContentUri: layers/api-responses/dist
       CompatibleRuntimes:
         - nodejs12.x
       RetentionPolicy: Retain
