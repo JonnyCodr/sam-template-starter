@@ -1,0 +1,8 @@
+{
+  "Parameters": {
+    "Environment": "dev",
+    "Brand": "dhi",
+    "Application": "identity-api",
+    "Owner": "candidate-tools"
+  }
+}
