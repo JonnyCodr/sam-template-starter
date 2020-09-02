@@ -1,0 +1,27 @@
+{
+    "root": true,
+    "env": {
+        "es2020": true,
+        "node": true,
+        "jest": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "airbnb",
+        "plugin:@typescript-eslint/recomended",
+        "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": [
+        "dist/",
+        "coverage/",
+        "test/"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "rules": {}
+}
